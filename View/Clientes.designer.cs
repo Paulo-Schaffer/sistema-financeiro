@@ -42,13 +42,14 @@
             this.mtbCpf = new System.Windows.Forms.MaskedTextBox();
             this.mtbRg = new System.Windows.Forms.MaskedTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDataNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBusca = new System.Windows.Forms.Button();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDataNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             this.btnDeletar.TabIndex = 7;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnEditar
             // 
@@ -77,6 +79,7 @@
             this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnSalvar
             // 
@@ -96,7 +99,7 @@
             // 
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.Location = new System.Drawing.Point(48, 298);
+            this.lblData.Location = new System.Drawing.Point(17, 298);
             this.lblData.Name = "lblData";
             this.lblData.Size = new System.Drawing.Size(168, 24);
             this.lblData.TabIndex = 23;
@@ -106,7 +109,7 @@
             // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(48, 227);
+            this.lblTipo.Location = new System.Drawing.Point(17, 235);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(152, 24);
             this.lblTipo.TabIndex = 22;
@@ -116,21 +119,22 @@
             // 
             this.lblValor.AutoSize = true;
             this.lblValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValor.Location = new System.Drawing.Point(48, 156);
+            this.lblValor.Location = new System.Drawing.Point(22, 156);
             this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(77, 24);
+            this.lblValor.Size = new System.Drawing.Size(38, 24);
             this.lblValor.TabIndex = 21;
-            this.lblValor.Text = "Seu Cpf";
+            this.lblValor.Text = "Cpf";
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(48, 85);
+            this.lblNome.ForeColor = System.Drawing.Color.White;
+            this.lblNome.Location = new System.Drawing.Point(17, 85);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(98, 24);
+            this.lblNome.Size = new System.Drawing.Size(62, 24);
             this.lblNome.TabIndex = 20;
-            this.lblNome.Text = "Seu nome";
+            this.lblNome.Text = "Nome";
             // 
             // txtNome
             // 
@@ -144,6 +148,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.ForeColor = System.Drawing.Color.White;
             this.lblID.Location = new System.Drawing.Point(93, 19);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(20, 24);
@@ -154,6 +159,7 @@
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.ForeColor = System.Drawing.Color.White;
             this.lblCodigo.Location = new System.Drawing.Point(17, 19);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(82, 24);
@@ -182,46 +188,35 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
             this.ColumnNome,
+            this.ColumnCpf,
             this.ColumnDataNascimento,
             this.ColumnRG});
             this.dataGridView1.Location = new System.Drawing.Point(266, 112);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(442, 295);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(542, 295);
             this.dataGridView1.TabIndex = 30;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "Id";
-            this.ColumnId.Name = "ColumnId";
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.Name = "ColumnNome";
-            // 
-            // ColumnDataNascimento
-            // 
-            this.ColumnDataNascimento.HeaderText = "DataNascimento";
-            this.ColumnDataNascimento.Name = "ColumnDataNascimento";
-            // 
-            // ColumnRG
-            // 
-            this.ColumnRG.HeaderText = "Registro Geral(RG)";
-            this.ColumnRG.Name = "ColumnRG";
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // btnBusca
             // 
+            this.btnBusca.BackColor = System.Drawing.Color.Brown;
+            this.btnBusca.FlatAppearance.BorderSize = 0;
+            this.btnBusca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBusca.Location = new System.Drawing.Point(266, 31);
             this.btnBusca.Name = "btnBusca";
             this.btnBusca.Size = new System.Drawing.Size(85, 29);
             this.btnBusca.TabIndex = 31;
             this.btnBusca.Text = "Buscar";
-            this.btnBusca.UseVisualStyleBackColor = true;
+            this.btnBusca.UseVisualStyleBackColor = false;
             // 
             // txtBusca
             // 
@@ -240,12 +235,42 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(239, 29);
             this.dateTimePicker1.TabIndex = 3;
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnCpf
+            // 
+            this.ColumnCpf.HeaderText = "CPF";
+            this.ColumnCpf.Name = "ColumnCpf";
+            this.ColumnCpf.ReadOnly = true;
+            // 
+            // ColumnDataNascimento
+            // 
+            this.ColumnDataNascimento.HeaderText = "DataNascimento";
+            this.ColumnDataNascimento.Name = "ColumnDataNascimento";
+            this.ColumnDataNascimento.ReadOnly = true;
+            // 
+            // ColumnRG
+            // 
+            this.ColumnRG.HeaderText = "Registro Geral(RG)";
+            this.ColumnRG.Name = "ColumnRG";
+            this.ColumnRG.ReadOnly = true;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
-            this.ClientSize = new System.Drawing.Size(720, 432);
+            this.ClientSize = new System.Drawing.Size(828, 432);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.btnBusca);
@@ -262,6 +287,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblCodigo);
+            this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Clientes";
             this.Text = "Clientes";
@@ -287,12 +313,13 @@
         private System.Windows.Forms.MaskedTextBox mtbCpf;
         private System.Windows.Forms.MaskedTextBox mtbRg;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDataNascimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRG;
         private System.Windows.Forms.Button btnBusca;
         private System.Windows.Forms.TextBox txtBusca;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDataNascimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRG;
     }
 }

@@ -247,6 +247,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblCodigo);
+            this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContasPagar";
             this.Text = "ContasPagar";

@@ -1,0 +1,6 @@
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Modelo\bin\Debug\Modelo.dll
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Modelo\obj\Debug\Modelo.dll
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Modelo\obj\Debug\Modelo.pdb

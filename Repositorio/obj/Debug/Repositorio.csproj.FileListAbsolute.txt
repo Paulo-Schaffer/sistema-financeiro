@@ -1,0 +1,9 @@
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\bin\Debug\Repositorio.dll
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\bin\Debug\Repositorio.pdb
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\bin\Debug\Modelo.dll
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\bin\Debug\Modelo.pdb
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\obj\Debug\Repositorio.csprojAssemblyReference.cache
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\obj\Debug\Repositorio.csproj.CoreCompileInputs.cache
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\obj\Debug\Repositorio.csproj.CopyComplete
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\obj\Debug\Repositorio.dll
+C:\Users\Alunos\Desktop\SistemaFinanceiro\Repositorio\obj\Debug\Repositorio.pdb
